@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- 可以配置多个appender来对应不同的输出，如文件输出，sql输出，控制台输出，邮件输出等 不同的输出类型对应着不同的class，如控制台输出class对应着 org.apache.log4j.ConsoleAppender-->
+
+    <!-- [ 控制台STDOUT ]  -->
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">  <!-- name提供给logger或者root调用 -->
+        <param name="encoding" value="GBK" />  <!-- 保存字符集 -->
+        <param name="target" value="System.out" />  <!-- 输出到控制台 -->
+        <layout class="org.apache.log4j.PatternLayout"> <!-- loyout表示输出方式，可以多种，class值区分，PatternLayout表示自定义格式 -->
+            <param name="ConversionPattern" value="%d{ISO8601} 耗时：%r [日志来自：%-40.40c{3} 日志类型: %-5p 日志内容：%m]%n" />  <!-- 输出格式，后面解释 -->
+        </layout>
+        <!--filter过滤器设置输出的级别:ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF
+            所有下面输出的是debug到warn不会有error和fatal
+        -->
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="debug" />
+            <param name="levelMax" value="warn" />
+            <param name="AcceptOnMatch" value="true" />  <!-- 答案：http://bbs.csdn.net/topics/350195913 -->
+        </filter>
+    </appender>
+
+    <!-- [ 公共 Appender] -->
+    <appender name="DEFAULT-APPENDER" class="org.apache.log4j.DailyRollingFileAppender"><!--这个class表示输入到文件，并且按日期生成新文件-->
+        <param name="File" value="/logs/common-default.log" />  <!-- ${webapp.root}项目根路径，自动获得，不用配置，可自己在web.xml中配置 -->
+        <param name="Append" value="true" />  <!-- 是否项目重启继续保存之前日志 也就是追加-->
+        <param name="encoding" value="UTF-8" />
+        <param name="threshold" value="all" /> <!-- 记录所有类型日志，记录它和比它等级高的日志all<debug -->
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />  <!-- 日期格式  例子：common-default.log.2015-09-17.log-->
+        <layout class="org.apache.log4j.PatternLayout">  <!-- 输出方式 -->
+            <param name="ConversionPattern" value="%d{ISO8601} 耗时：%r [日志来自：%-40.40c{3} 日志类型: %-5p 日志内容：%m]%n" />
+        </layout>
+    </appender>
+
+    <!-- [ debug 日志 APPENDER ] -->
+    <appender name="DEBUG-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/logs/controller/debug-log.log" />
+        <param name="Append" value="true" />
+        <param name="encoding" value="UTF-8" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} 耗时：%r [日志来自：%-40.40c{3} 日志类型: %-5p 日志内容：%m]%n" />
+        </layout>
+        <!-- 只想记录debug单独一种日志，就做如下设置 -->
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="debug"/>
+            <param name="LevelMin" value="debug"/>
+        </filter>
+    </appender>
+
+    <!-- [ info 日志APPENDER ] -->
+    <appender name="INFO-APPENDER"
+              class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/logs/controller/info-log.log" />
+        <param name="Append" value="false" />
+        <param name="encoding" value="UTF-8" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} 耗时：%r [日志来自：%-40.40c{3} 日志类型: %-5p 日志内容：%m]%n" />
+        </layout>
+        <!-- 只想记录info单独一种日志，就做如下设置 -->
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="info"/>
+            <param name="LevelMin" value="info"/>
+        </filter>
+    </appender>
+
+    <!-- [ error 日志APPENDER ] -->
+    <appender name="ERROR-APPENDER"
+              class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/logs/controller/error-log.log" />
+        <param name="Append" value="true" />
+        <param name="encoding" value="UTF-8" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} 耗时：%r [日志来自：%-40.40c{3} 日志类型: %-5p 日志内容：%m]%n" />
+        </layout>
+        <!-- 只想记录info单独一种日志，就做如下设置 -->
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="error"/>
+            <param name="LevelMin" value="error"/>
+        </filter>
+    </appender>
+
+    <!-- [ 组件日志 APPENDER ] -->
+    <appender name="COMPONENT-APPENDER"
+              class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/logs/logistics-component.log" />
+        <param name="Append" value="true" />
+        <param name="encoding" value="UTF-8" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} 耗时：%r [日志来自：%-40.40c{3} 日志类型: %-5p 日志内容：%m]%n" />
+        </layout>
+    </appender>
+
+    <!-- 发邮件（只有 ERROR 时才会发送！） -->
+    <appender name="MAIL-APPENDER" class="org.apache.log4j.net.SMTPAppender">
+        <param name="threshold" value="debug" />
+        <!-- 日志的错误级别
+         <param name="threshold" value="fatal"/>
+        -->
+        <!-- 缓存文件大小，日志达到512K时发送Email -->
+        <param name="BufferSize" value="500" /><!-- 单位K -->
+        <param name="From" value="wen_lincheng@163.com" />
+        <param name="SMTPHost" value="smtp.163.com" /><!--邮箱服务器-->
+        <param name="SMTPUsername" value="wen_lincheng@163.com" />
+        <param name="SMTPPassword" value="XXXX" /><!--邮箱的第三方客户端授权码-->
+        <param name="To" value="1511181420@qq.com" />
+        <param name="Subject" value="江湖救急!!!" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss.SSS} [%p]-[%c] %m%n" />
+        </layout>
+    </appender>
+
+    <!-- 发邮件 logger-->
+    <logger name="com.gmt.employer.controller">
+        <level value="ERROR"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+        <appender-ref ref="MAIL-APPENDER"/>
+    </logger>
+
+    <!-- 这里是打印log,指定的 APPENDER 不能重复使用-->
+    <!-- 指定包名Logger -->
+    <!-- debug logger -->
+    <!-- name指定的是包名，表示这个logger只记录com.gmt.employer.controller下的所有日志 -->
+    <!-- additivity 是否继承root -->
+    <!--<logger name="com.gmt.employer.controller" additivity="true">
+        <level value="DEBUG"/>  &lt;!&ndash; 现在级别 &ndash;&gt;
+        <appender-ref ref="DEBUG-APPENDER" />
+    </logger>-->
+
+    <!-- info logger -->
+    <!-- name指定的是包名，这样只操作此包下的log -->
+    <!--<logger name="com.gmt.employer.controller" additivity="true">
+        <level value="INFO"/>
+        <appender-ref ref="INFO-APPENDER" />
+        <appender-ref ref="console"/>
+    </logger>-->
+
+    <!-- Root Logger -->
+    <!-- 所有logger的父类，记录所有的日志。 -->
+    <root>
+        <level value="ALL"/>  <!-- 限定记录等级 -->
+        <appender-ref ref="DEFAULT-APPENDER"/>  <!-- 调用记录方式 -->
+        <appender-ref ref="console"/>
+    </root>
+
+</log4j:configuration>

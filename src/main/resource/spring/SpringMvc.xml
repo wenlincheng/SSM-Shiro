@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+    <!-- 跳到欢迎页 -->
+    <mvc:view-controller path="/" view-name="redirect:/login/page" />
+
+    <!-- 引入字典资源文件 -->
+    <context:property-placeholder location="classpath:resource.properties"/>
+
+    <!-- 配置@Controller注解扫描 -->
+    <context:component-scan base-package="com.wenlincheng.ssm.controller"/>
+
+    <!-- 启动对@AspectJ注解的支持 -->
+    <!--<aop:aspectj-autoproxy />-->
+
+    <!--自定义切面所在包-->
+    <context:component-scan base-package="com.wenlincheng.ssm.log"/>
+    <!-- 开启aop包扫描 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!-- 注解驱动： 作用：自动配置最新版本的的注解器映射器和处理器适配器 -->
+    <mvc:annotation-driven conversion-service="myConversionService"/>
+
+    <!-- 转换器配置：另外 <mvc:annotation-driven>加 conversion-service="conversionService" -->
+     <bean id="myConversionService"
+        class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <!--字符串转日期转换器-->
+            <set>
+                <!--指定自定义的转换器全路径-->
+                <bean class="com.wenlincheng.ssm.converter.DateConverter" />
+            </set>
+        </property>
+    </bean>
+
+    <!-- 配置视图解析器 -->
+    <!-- 作用：在controller中指定页面路径的时候，不用写完整的路径名称，直接写页面去掉扩展名的名称 -->
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView"/>
+        <!-- 真正的路径：前缀+页面名称+后缀 -->
+        <!-- 前缀 -->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <!-- 后缀 -->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 由于在web.xml中定义的url拦截形式为“/”表示拦截所有的url请求，包括静态资源例如css、js等。所以添加资源映射标签 -->
+    <mvc:resources location="/static/js/" mapping="/static/js/**"/>
+    <mvc:resources location="/static/css/" mapping="/static/css/**"/>
+    <mvc:resources location="/static/bootstrap/" mapping="/static/bootstrap/**"/>
+
+    <!-- 异常处理器 -->
+    <bean id="handlerExceptionResolver" class="com.wenlincheng.ssm.exception.CustomExceptionResolver">
+    </bean>
+
+    <!-- 文件上传 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置上传文件的最大尺寸为5MB -->
+        <property name="maxUploadSize">
+            <value>5242880</value>
+        </property>
+    </bean>
+
+</beans>
