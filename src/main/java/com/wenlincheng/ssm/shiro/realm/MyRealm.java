@@ -74,7 +74,7 @@ public class MyRealm extends AuthorizingRealm {
 
         // 根据角色列表查询该用户的所有资源权限列表
         List<TRolePermission> rolePermissionList = new ArrayList<>();
-        List<String> permissionUrlList = new ArrayList<>();
+        List<String> permissionStrList = new ArrayList<>();
         for(TRole role: roleList){
             List<TRolePermission> rolePermissionList2 = rolePermissionService.getByRid(role.getRoleId());
 
@@ -86,17 +86,17 @@ public class MyRealm extends AuthorizingRealm {
         // 权限
         for(TRolePermission rolePermission : rolePermissionList){
             TPermission permission = permissionService.getById(rolePermission.getId());
-            permissionUrlList.add(permission.getPermissionUrl());
+            permissionStrList.add(permission.getPermissionStr());
         }
 
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         // 向 info 中设置角色、权限信息，去重
         info.setRoles(new HashSet<>(roleStrList));
-        info.setStringPermissions(new HashSet<>(permissionUrlList));
+        info.setStringPermissions(new HashSet<>(permissionStrList));
 
         // 完成了动态地对用户授权
         logger.debug("用户角色 => " + roleStrList);
-        logger.debug("用户权限 => " + permissionUrlList);
+        logger.debug("用户权限 => " + permissionStrList);
 
         return info;
     }

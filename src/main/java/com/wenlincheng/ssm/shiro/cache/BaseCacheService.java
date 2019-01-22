@@ -6,11 +6,13 @@ import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 
 /**
- * Created by liwei on 16/9/21.
- * 注意:该基础缓存服务类中使用的缓存都是 Spring 框架提供的缓存
- *
+ * @ClassName: BaseCacheService
+ * @Description: 注意:该基础缓存服务类中使用的缓存都是 Spring 框架提供的缓存
+ * @Params:
+ * @Return:
+ * @Author: Cheng
+ * @Date: 2019/1/23 0:30
  */
-
 public class BaseCacheService implements InitializingBean {
     /**
      * Spring 的 Cache

@@ -113,7 +113,7 @@ public class LoginController {
 
         // 登录成功,重定向到首页
         if(msg == null){
-            modelAndView.setViewName("redirect:/admin/index");
+            modelAndView.setViewName("redirect:/index/page");
             return modelAndView;
         }
         // 登录失败 页面跳转到登录页面 并显示提示信息

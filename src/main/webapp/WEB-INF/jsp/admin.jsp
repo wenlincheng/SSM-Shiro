@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-CN">
 <head>
-    <title>首页</title>
+    <title>后台</title>
     <!-- Bootstrap -->
     <link href="${ctx}/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -17,33 +17,12 @@
 <body>
     <div class="container">
         <H3>首页</H3>
-        <%-- 游客显示 --%>
-        <shiro:guest>
-            <dd><a href="${ctx}/login/page" id="login">登录</a></dd>
-        </shiro:guest>
-        <%-- 用户认证后显示 --%>
-        <shiro:user>
-            <%-- 学生显示 --%>
-            <shiro:hasRole name="student">
-                <dd><a href="#">个人中心</a></dd>
-            </shiro:hasRole>
-            <%-- 管理员显示 --%>
-            <shiro:hasRole name="admin">
-                <dd><a class="btn btn-default" href="${ctx}/admin/index" id="admin">系统后台</a></dd>
-            </shiro:hasRole>
-            <dd><a href="${ctx}/login/logout" id="logout">退出登录</a></dd>
-        </shiro:user>
+        <shiro:hasRole name="admin">
+            [admin]角色可见
+        </shiro:hasRole>
         <br>
         <shiro:hasPermission name="admin:*">
             [admin:*]权限可见
-        </shiro:hasPermission>
-
-        <shiro:hasRole name="student">
-            [student]角色可见
-        </shiro:hasRole>
-        <br>
-        <shiro:hasPermission name="company:list">
-            [company:list]权限可见
         </shiro:hasPermission>
 
     </div>

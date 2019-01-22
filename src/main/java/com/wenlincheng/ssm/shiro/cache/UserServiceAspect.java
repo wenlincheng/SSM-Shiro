@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @MethodName: UserServiceAspect
- * @Description: 用户服务切面
+ * @Description: 用户服务切面 继承BaseCacheService 将相应方法的操作数据缓存起来 使用 @EnableAspectJAutoProxy  // 开启 AOP ,作用同 <aop:aspectj-autoproxy/>
  * @Params: 
  * @Return:  
  * @Author: Cheng
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Aspect
-@EnableAspectJAutoProxy // 开启 AOP ,作用同 <aop:aspectj-autoproxy/>
+@EnableAspectJAutoProxy
 public class UserServiceAspect extends BaseCacheService{
     private static final Logger logger = LoggerFactory.getLogger(UserServiceAspect.class);
     /**
@@ -38,7 +38,7 @@ public class UserServiceAspect extends BaseCacheService{
     /**
      * target 表明只针对某个类实现 AOP 代理
      */
-    @Pointcut("target(com.liwei.shiro.service.impl.UserService)")
+    @Pointcut("target(com.wenlincheng.ssm.service.impl.UserServiceImpl)")
     public void userServicePointcut(){
     }
 

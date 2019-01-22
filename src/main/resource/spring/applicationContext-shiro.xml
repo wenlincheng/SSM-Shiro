@@ -16,8 +16,6 @@
     <bean id="myRealm" class="com.wenlincheng.ssm.shiro.realm.MyRealm">
         <!-- 将上面声明的密码匹配器注入到自定义 Realm 的属性中去 -->
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
-        <!-- 将自定义的权限匹配器注入到自定义 Realm 中 -->
-        <property name="permissionResolver" ref="permissionResolver"/>
 
         <!-- 配置缓存相关 -->
         <!-- 启用缓存 -->
@@ -32,13 +30,12 @@
         <property name="authorizationCacheName" value="shiro-authorizationCache"/>
     </bean>
 
-    <!-- 自定义一个权限匹配器 -->
-    <bean id="permissionResolver" class="com.wenlincheng.ssm.shiro.permission.UrlPermissionResolver"/>
-
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <!-- 如果认证不通过,浏览器通过 Get 方式请求到 /login/page 上 -->
         <property name="loginUrl" value="/login/page"/>
+        <!-- 没有权限跳转 -->
+        <property name="unauthorizedUrl" value="/common/unAuthorization"/>
 
         <!-- override these for application-specific URLs if you like:
         <property name="successUrl" value="/home.jsp"/>
@@ -63,15 +60,10 @@
             -->
             <value>
                 /login/**=anon
-                /admin/**=authc,resourceCheckFilter
+                /index/**=authc
+                /admin/**=perms["admin:*"]
             </value>
         </property>
-    </bean>
-
-    <!-- 声明一个自定义的过滤器 -->
-    <bean id="resourceCheckFilter" class="com.wenlincheng.ssm.shiro.filter.ResourceCheckFilter">
-        <!-- 为上面声明的自定义过滤器注入属性值 -->
-        <property name="errorUrl" value="/common/unAuthorization"/>
     </bean>
 
     <!-- 用于获取所有session 统计在线人数 -->

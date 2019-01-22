@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @ClassName: AdminController
- * @Description: TODO
+ * @ClassName: IndexController
+ * @Description: 首页
  * @Author: Cheng
  * @Date: 2019/1/21 23:22
  * @Version: 1.0.0
  */
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/index")
+public class IndexController {
 
     /**
      * @MethodName: unAuthorization
@@ -23,9 +23,9 @@ public class AdminController {
      * @Author: Cheng
      * @Date: 2019/1/21 23:23
      */
-    @RequestMapping("/index")
+    @RequestMapping("/page")
     public ModelAndView unAuthorization(ModelAndView modelAndView){
-        modelAndView.setViewName("admin");
+        modelAndView.setViewName("index");
 
         return modelAndView;
     }
