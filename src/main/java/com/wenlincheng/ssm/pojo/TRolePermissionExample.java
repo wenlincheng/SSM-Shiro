@@ -3,7 +3,7 @@ package com.wenlincheng.ssm.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TRoleResourceExample {
+public class TRolePermissionExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -18,7 +18,7 @@ public class TRoleResourceExample {
 
     protected String fields;
 
-    public TRoleResourceExample() {
+    public TRolePermissionExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -266,63 +266,63 @@ public class TRoleResourceExample {
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdIsNull() {
-            addCriterion("resource_id is null");
+        public Criteria andPermissionIdIsNull() {
+            addCriterion("permission_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdIsNotNull() {
-            addCriterion("resource_id is not null");
+        public Criteria andPermissionIdIsNotNull() {
+            addCriterion("permission_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdEqualTo(Integer value) {
-            addCriterion("resource_id =", value, "resourceId");
+        public Criteria andPermissionIdEqualTo(Integer value) {
+            addCriterion("permission_id =", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdNotEqualTo(Integer value) {
-            addCriterion("resource_id <>", value, "resourceId");
+        public Criteria andPermissionIdNotEqualTo(Integer value) {
+            addCriterion("permission_id <>", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdGreaterThan(Integer value) {
-            addCriterion("resource_id >", value, "resourceId");
+        public Criteria andPermissionIdGreaterThan(Integer value) {
+            addCriterion("permission_id >", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("resource_id >=", value, "resourceId");
+        public Criteria andPermissionIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("permission_id >=", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdLessThan(Integer value) {
-            addCriterion("resource_id <", value, "resourceId");
+        public Criteria andPermissionIdLessThan(Integer value) {
+            addCriterion("permission_id <", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdLessThanOrEqualTo(Integer value) {
-            addCriterion("resource_id <=", value, "resourceId");
+        public Criteria andPermissionIdLessThanOrEqualTo(Integer value) {
+            addCriterion("permission_id <=", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdIn(List<Integer> values) {
-            addCriterion("resource_id in", values, "resourceId");
+        public Criteria andPermissionIdIn(List<Integer> values) {
+            addCriterion("permission_id in", values, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdNotIn(List<Integer> values) {
-            addCriterion("resource_id not in", values, "resourceId");
+        public Criteria andPermissionIdNotIn(List<Integer> values) {
+            addCriterion("permission_id not in", values, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdBetween(Integer value1, Integer value2) {
-            addCriterion("resource_id between", value1, value2, "resourceId");
+        public Criteria andPermissionIdBetween(Integer value1, Integer value2) {
+            addCriterion("permission_id between", value1, value2, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("resource_id not between", value1, value2, "resourceId");
+        public Criteria andPermissionIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("permission_id not between", value1, value2, "permissionId");
             return (Criteria) this;
         }
     }

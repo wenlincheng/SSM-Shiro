@@ -1,9 +1,11 @@
 package com.wenlincheng.ssm.shiro.filter;
 
+import com.wenlincheng.ssm.service.TPermissionService;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -17,6 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  * @Date: 2018/11/1 22:34
  */
 public class ResourceCheckFilter extends AccessControlFilter {
+
+
     private String errorUrl;
     private static final Logger logger = LoggerFactory.getLogger(ResourceCheckFilter.class);
 
@@ -42,6 +46,7 @@ public class ResourceCheckFilter extends AccessControlFilter {
         String url = getPathWithinApplication(servletRequest);
 
         logger.debug("当前用户正在访问的 url => " + url);
+
         return subject.isPermitted(url);
     }
     
@@ -58,6 +63,7 @@ public class ResourceCheckFilter extends AccessControlFilter {
         logger.debug("当 isAccessAllowed 返回 false 的时候，才会执行 method onAccessDenied");
         HttpServletRequest request =(HttpServletRequest) servletRequest;
         HttpServletResponse response =(HttpServletResponse) servletResponse;
+        // 跳转到授权错误页面
         response.sendRedirect(request.getContextPath() + this.errorUrl);
 
         // 返回 false 表示已经处理，例如页面跳转啥的，表示不在走以下的拦截器了（如果还有配置的话）

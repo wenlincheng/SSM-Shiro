@@ -133,11 +133,13 @@ public class LoginController {
      */
     @Log(methodDesc="用户退出登录")
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
-    public String logout(){
+    @ResponseBody
+    public ModelAndView logout(ModelAndView modelAndView){
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
+        modelAndView.setViewName("login");
 
-        return "redirect:/index";
+        return modelAndView;
     }
 
 }

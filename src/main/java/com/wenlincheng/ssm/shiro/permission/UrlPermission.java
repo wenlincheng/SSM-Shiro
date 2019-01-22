@@ -16,7 +16,10 @@ import org.slf4j.LoggerFactory;
  */
 public class UrlPermission implements Permission {
     private static final Logger logger = LoggerFactory.getLogger(UrlPermission.class);
-    // 在 Realm 的授权方法中,由数据库查询出来的权限字符串
+    /**
+     * 在 Realm 的授权方法中,由数据库查询出来的权限字符串
+     *
+     */
     private String url;
 
     public UrlPermission(String url){
@@ -45,6 +48,7 @@ public class UrlPermission implements Permission {
 
         logger.debug("this.url(来自数据库中存放的通配符数据),在 Realm 的授权方法中注入的 => " + this.url);
         logger.debug("urlPermission.url(来自浏览器正在访问的链接) => " +  urlPermission.url);
+
         boolean matches = patternMatcher.matches(this.url,urlPermission.url);
         logger.debug("matches => " + matches);
         return matches;

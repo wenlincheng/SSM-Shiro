@@ -1,9 +1,6 @@
 package com.wenlincheng.ssm.service;
 
-import com.wenlincheng.ssm.pojo.TResource;
 import com.wenlincheng.ssm.pojo.TUser;
-
-import java.util.List;
 
 /**
  * @ClassName: TUserService

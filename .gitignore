@@ -2,6 +2,5 @@
 .idea
 *.iml
 .mvn
-log
 out
 target

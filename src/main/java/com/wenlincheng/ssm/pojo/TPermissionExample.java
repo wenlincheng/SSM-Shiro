@@ -3,7 +3,7 @@ package com.wenlincheng.ssm.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TResourceExample {
+public class TPermissionExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -18,7 +18,7 @@ public class TResourceExample {
 
     protected String fields;
 
-    public TResourceExample() {
+    public TPermissionExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -146,273 +146,273 @@ public class TResourceExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andResourceIdIsNull() {
-            addCriterion("resource_id is null");
+        public Criteria andPermissionIdIsNull() {
+            addCriterion("permission_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdIsNotNull() {
-            addCriterion("resource_id is not null");
+        public Criteria andPermissionIdIsNotNull() {
+            addCriterion("permission_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdEqualTo(Integer value) {
-            addCriterion("resource_id =", value, "resourceId");
+        public Criteria andPermissionIdEqualTo(Integer value) {
+            addCriterion("permission_id =", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdNotEqualTo(Integer value) {
-            addCriterion("resource_id <>", value, "resourceId");
+        public Criteria andPermissionIdNotEqualTo(Integer value) {
+            addCriterion("permission_id <>", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdGreaterThan(Integer value) {
-            addCriterion("resource_id >", value, "resourceId");
+        public Criteria andPermissionIdGreaterThan(Integer value) {
+            addCriterion("permission_id >", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("resource_id >=", value, "resourceId");
+        public Criteria andPermissionIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("permission_id >=", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdLessThan(Integer value) {
-            addCriterion("resource_id <", value, "resourceId");
+        public Criteria andPermissionIdLessThan(Integer value) {
+            addCriterion("permission_id <", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdLessThanOrEqualTo(Integer value) {
-            addCriterion("resource_id <=", value, "resourceId");
+        public Criteria andPermissionIdLessThanOrEqualTo(Integer value) {
+            addCriterion("permission_id <=", value, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdIn(List<Integer> values) {
-            addCriterion("resource_id in", values, "resourceId");
+        public Criteria andPermissionIdIn(List<Integer> values) {
+            addCriterion("permission_id in", values, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdNotIn(List<Integer> values) {
-            addCriterion("resource_id not in", values, "resourceId");
+        public Criteria andPermissionIdNotIn(List<Integer> values) {
+            addCriterion("permission_id not in", values, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdBetween(Integer value1, Integer value2) {
-            addCriterion("resource_id between", value1, value2, "resourceId");
+        public Criteria andPermissionIdBetween(Integer value1, Integer value2) {
+            addCriterion("permission_id between", value1, value2, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("resource_id not between", value1, value2, "resourceId");
+        public Criteria andPermissionIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("permission_id not between", value1, value2, "permissionId");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameIsNull() {
-            addCriterion("resource_name is null");
+        public Criteria andPermissionNameIsNull() {
+            addCriterion("permission_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameIsNotNull() {
-            addCriterion("resource_name is not null");
+        public Criteria andPermissionNameIsNotNull() {
+            addCriterion("permission_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameEqualTo(String value) {
-            addCriterion("resource_name =", value, "resourceName");
+        public Criteria andPermissionNameEqualTo(String value) {
+            addCriterion("permission_name =", value, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameNotEqualTo(String value) {
-            addCriterion("resource_name <>", value, "resourceName");
+        public Criteria andPermissionNameNotEqualTo(String value) {
+            addCriterion("permission_name <>", value, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameGreaterThan(String value) {
-            addCriterion("resource_name >", value, "resourceName");
+        public Criteria andPermissionNameGreaterThan(String value) {
+            addCriterion("permission_name >", value, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameGreaterThanOrEqualTo(String value) {
-            addCriterion("resource_name >=", value, "resourceName");
+        public Criteria andPermissionNameGreaterThanOrEqualTo(String value) {
+            addCriterion("permission_name >=", value, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameLessThan(String value) {
-            addCriterion("resource_name <", value, "resourceName");
+        public Criteria andPermissionNameLessThan(String value) {
+            addCriterion("permission_name <", value, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameLessThanOrEqualTo(String value) {
-            addCriterion("resource_name <=", value, "resourceName");
+        public Criteria andPermissionNameLessThanOrEqualTo(String value) {
+            addCriterion("permission_name <=", value, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameLike(String value) {
-            addCriterion("resource_name like", value, "resourceName");
+        public Criteria andPermissionNameLike(String value) {
+            addCriterion("permission_name like", value, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameNotLike(String value) {
-            addCriterion("resource_name not like", value, "resourceName");
+        public Criteria andPermissionNameNotLike(String value) {
+            addCriterion("permission_name not like", value, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameIn(List<String> values) {
-            addCriterion("resource_name in", values, "resourceName");
+        public Criteria andPermissionNameIn(List<String> values) {
+            addCriterion("permission_name in", values, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameNotIn(List<String> values) {
-            addCriterion("resource_name not in", values, "resourceName");
+        public Criteria andPermissionNameNotIn(List<String> values) {
+            addCriterion("permission_name not in", values, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameBetween(String value1, String value2) {
-            addCriterion("resource_name between", value1, value2, "resourceName");
+        public Criteria andPermissionNameBetween(String value1, String value2) {
+            addCriterion("permission_name between", value1, value2, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourceNameNotBetween(String value1, String value2) {
-            addCriterion("resource_name not between", value1, value2, "resourceName");
+        public Criteria andPermissionNameNotBetween(String value1, String value2) {
+            addCriterion("permission_name not between", value1, value2, "permissionName");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionIsNull() {
-            addCriterion("resource_permission is null");
+        public Criteria andPermissionStrIsNull() {
+            addCriterion("permission_str is null");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionIsNotNull() {
-            addCriterion("resource_permission is not null");
+        public Criteria andPermissionStrIsNotNull() {
+            addCriterion("permission_str is not null");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionEqualTo(String value) {
-            addCriterion("resource_permission =", value, "resourcePermission");
+        public Criteria andPermissionStrEqualTo(String value) {
+            addCriterion("permission_str =", value, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionNotEqualTo(String value) {
-            addCriterion("resource_permission <>", value, "resourcePermission");
+        public Criteria andPermissionStrNotEqualTo(String value) {
+            addCriterion("permission_str <>", value, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionGreaterThan(String value) {
-            addCriterion("resource_permission >", value, "resourcePermission");
+        public Criteria andPermissionStrGreaterThan(String value) {
+            addCriterion("permission_str >", value, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionGreaterThanOrEqualTo(String value) {
-            addCriterion("resource_permission >=", value, "resourcePermission");
+        public Criteria andPermissionStrGreaterThanOrEqualTo(String value) {
+            addCriterion("permission_str >=", value, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionLessThan(String value) {
-            addCriterion("resource_permission <", value, "resourcePermission");
+        public Criteria andPermissionStrLessThan(String value) {
+            addCriterion("permission_str <", value, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionLessThanOrEqualTo(String value) {
-            addCriterion("resource_permission <=", value, "resourcePermission");
+        public Criteria andPermissionStrLessThanOrEqualTo(String value) {
+            addCriterion("permission_str <=", value, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionLike(String value) {
-            addCriterion("resource_permission like", value, "resourcePermission");
+        public Criteria andPermissionStrLike(String value) {
+            addCriterion("permission_str like", value, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionNotLike(String value) {
-            addCriterion("resource_permission not like", value, "resourcePermission");
+        public Criteria andPermissionStrNotLike(String value) {
+            addCriterion("permission_str not like", value, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionIn(List<String> values) {
-            addCriterion("resource_permission in", values, "resourcePermission");
+        public Criteria andPermissionStrIn(List<String> values) {
+            addCriterion("permission_str in", values, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionNotIn(List<String> values) {
-            addCriterion("resource_permission not in", values, "resourcePermission");
+        public Criteria andPermissionStrNotIn(List<String> values) {
+            addCriterion("permission_str not in", values, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionBetween(String value1, String value2) {
-            addCriterion("resource_permission between", value1, value2, "resourcePermission");
+        public Criteria andPermissionStrBetween(String value1, String value2) {
+            addCriterion("permission_str between", value1, value2, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourcePermissionNotBetween(String value1, String value2) {
-            addCriterion("resource_permission not between", value1, value2, "resourcePermission");
+        public Criteria andPermissionStrNotBetween(String value1, String value2) {
+            addCriterion("permission_str not between", value1, value2, "permissionStr");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlIsNull() {
-            addCriterion("resource_url is null");
+        public Criteria andPermissionUrlIsNull() {
+            addCriterion("permission_url is null");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlIsNotNull() {
-            addCriterion("resource_url is not null");
+        public Criteria andPermissionUrlIsNotNull() {
+            addCriterion("permission_url is not null");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlEqualTo(String value) {
-            addCriterion("resource_url =", value, "resourceUrl");
+        public Criteria andPermissionUrlEqualTo(String value) {
+            addCriterion("permission_url =", value, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlNotEqualTo(String value) {
-            addCriterion("resource_url <>", value, "resourceUrl");
+        public Criteria andPermissionUrlNotEqualTo(String value) {
+            addCriterion("permission_url <>", value, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlGreaterThan(String value) {
-            addCriterion("resource_url >", value, "resourceUrl");
+        public Criteria andPermissionUrlGreaterThan(String value) {
+            addCriterion("permission_url >", value, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlGreaterThanOrEqualTo(String value) {
-            addCriterion("resource_url >=", value, "resourceUrl");
+        public Criteria andPermissionUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("permission_url >=", value, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlLessThan(String value) {
-            addCriterion("resource_url <", value, "resourceUrl");
+        public Criteria andPermissionUrlLessThan(String value) {
+            addCriterion("permission_url <", value, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlLessThanOrEqualTo(String value) {
-            addCriterion("resource_url <=", value, "resourceUrl");
+        public Criteria andPermissionUrlLessThanOrEqualTo(String value) {
+            addCriterion("permission_url <=", value, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlLike(String value) {
-            addCriterion("resource_url like", value, "resourceUrl");
+        public Criteria andPermissionUrlLike(String value) {
+            addCriterion("permission_url like", value, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlNotLike(String value) {
-            addCriterion("resource_url not like", value, "resourceUrl");
+        public Criteria andPermissionUrlNotLike(String value) {
+            addCriterion("permission_url not like", value, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlIn(List<String> values) {
-            addCriterion("resource_url in", values, "resourceUrl");
+        public Criteria andPermissionUrlIn(List<String> values) {
+            addCriterion("permission_url in", values, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlNotIn(List<String> values) {
-            addCriterion("resource_url not in", values, "resourceUrl");
+        public Criteria andPermissionUrlNotIn(List<String> values) {
+            addCriterion("permission_url not in", values, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlBetween(String value1, String value2) {
-            addCriterion("resource_url between", value1, value2, "resourceUrl");
+        public Criteria andPermissionUrlBetween(String value1, String value2) {
+            addCriterion("permission_url between", value1, value2, "permissionUrl");
             return (Criteria) this;
         }
 
-        public Criteria andResourceUrlNotBetween(String value1, String value2) {
-            addCriterion("resource_url not between", value1, value2, "resourceUrl");
+        public Criteria andPermissionUrlNotBetween(String value1, String value2) {
+            addCriterion("permission_url not between", value1, value2, "permissionUrl");
             return (Criteria) this;
         }
     }

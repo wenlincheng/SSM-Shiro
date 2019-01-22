@@ -12,8 +12,13 @@
     <link href="${ctx}/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<div class="container">
+    <h3>没有权限！</h3>
+    <a class="btn btn-danger" href="${ctx}/login/logout" >退出登录</a>
+</div>
 
-<h3>404</h3>
+
+
 
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>

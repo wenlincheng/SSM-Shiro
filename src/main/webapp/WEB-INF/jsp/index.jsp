@@ -4,19 +4,26 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<%-- Shiro 标签库 --%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-CN">
 <head>
     <title>首页</title>
     <!-- Bootstrap -->
     <link href="${ctx}/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
     <div class="container">
         <H3>首页</H3>
-
-
-
+        <shiro:hasRole name="admin">
+            [admin]角色可见
+        </shiro:hasRole>
+        <br>
+        <shiro:hasPermission name="/admin/**">
+            [/admin/**]权限可见
+        </shiro:hasPermission>
 
     </div>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->

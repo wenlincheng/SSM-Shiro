@@ -37,11 +37,10 @@
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <!-- 如果认证不通过,浏览器通过 Get 方式请求到 /login 上 -->
+        <!-- 如果认证不通过,浏览器通过 Get 方式请求到 /login/page 上 -->
         <property name="loginUrl" value="/login/page"/>
 
         <!-- override these for application-specific URLs if you like:
-
         <property name="successUrl" value="/home.jsp"/>
         <property name="unauthorizedUrl" value="/unauthorized.jsp"/> -->
         <!-- The 'filters' property is not necessary since any declared javax.servlet.Filter bean  -->
@@ -60,6 +59,7 @@
                 2). authc 必须认证(即登录)后才可能访问的页面.
                 3). logout 登出
                 4). roles 角色过滤器
+                5). perms 权限过滤器
             -->
             <value>
                 /login/**=anon
@@ -71,7 +71,7 @@
     <!-- 声明一个自定义的过滤器 -->
     <bean id="resourceCheckFilter" class="com.wenlincheng.ssm.shiro.filter.ResourceCheckFilter">
         <!-- 为上面声明的自定义过滤器注入属性值 -->
-        <property name="errorUrl" value="/unAuthorization"/>
+        <property name="errorUrl" value="/common/unAuthorization"/>
     </bean>
 
     <!-- 用于获取所有session 统计在线人数 -->

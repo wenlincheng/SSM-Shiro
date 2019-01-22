@@ -2,9 +2,9 @@ package com.wenlincheng.ssm.pojo;
 
 import java.io.Serializable;
 
-public class TRoleResource implements Serializable {
+public class TRolePermission implements Serializable {
     /**
-     * 角色资源关联 ID
+     * 角色权限关联 ID
      */
     private Integer id;
 
@@ -14,9 +14,9 @@ public class TRoleResource implements Serializable {
     private Integer roleId;
 
     /**
-     * 资源 id
+     * 权限 id
      */
-    private Integer resourceId;
+    private Integer permissionId;
 
     private static final long serialVersionUID = 1L;
 
@@ -36,12 +36,12 @@ public class TRoleResource implements Serializable {
         this.roleId = roleId;
     }
 
-    public Integer getResourceId() {
-        return resourceId;
+    public Integer getPermissionId() {
+        return permissionId;
     }
 
-    public void setResourceId(Integer resourceId) {
-        this.resourceId = resourceId;
+    public void setPermissionId(Integer permissionId) {
+        this.permissionId = permissionId;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class TRoleResource implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", roleId=").append(roleId);
-        sb.append(", resourceId=").append(resourceId);
+        sb.append(", permissionId=").append(permissionId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -40,10 +40,10 @@ public class MyRealm extends AuthorizingRealm {
     private TRoleService roleService;
 
     @Autowired
-    private TResourceService resourceService;
+    private TPermissionService permissionService;
 
     @Autowired
-    private TRoleResourceService roleResourceService;
+    private TRolePermissionService rolePermissionService;
 
     /**
      * @MethodName: doGetAuthorizationInfo
@@ -73,30 +73,30 @@ public class MyRealm extends AuthorizingRealm {
         }
 
         // 根据角色列表查询该用户的所有资源权限列表
-        List<TRoleResource> roleResourceList = new ArrayList<>();
-        List<String> resStrList = new ArrayList<>();
+        List<TRolePermission> rolePermissionList = new ArrayList<>();
+        List<String> permissionUrlList = new ArrayList<>();
         for(TRole role: roleList){
-            List<TRoleResource> roleResourceList2 = roleResourceService.getByRid(role.getRoleId());
+            List<TRolePermission> rolePermissionList2 = rolePermissionService.getByRid(role.getRoleId());
 
-            if(roleResourceList2.size() > 0){
-                roleResourceList.addAll(roleResourceList2);
+            if(rolePermissionList2.size() > 0){
+                rolePermissionList.addAll(rolePermissionList2);
             }
         }
 
         // 权限
-        for(TRoleResource roleResource : roleResourceList){
-            TResource resource = resourceService.getById(roleResource.getResourceId());
-            resStrList.add(resource.getResourceUrl());
+        for(TRolePermission rolePermission : rolePermissionList){
+            TPermission permission = permissionService.getById(rolePermission.getId());
+            permissionUrlList.add(permission.getPermissionUrl());
         }
 
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         // 向 info 中设置角色、权限信息，去重
         info.setRoles(new HashSet<>(roleStrList));
-        info.setStringPermissions(new HashSet<>(resStrList));
+        info.setStringPermissions(new HashSet<>(permissionUrlList));
 
         // 完成了动态地对用户授权
         logger.debug("用户角色 => " + roleStrList);
-        logger.debug("用户权限 => " + resStrList);
+        logger.debug("用户权限 => " + permissionUrlList);
 
         return info;
     }

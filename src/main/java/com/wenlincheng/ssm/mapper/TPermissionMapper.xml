@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wenlincheng.ssm.mapper.TResourceMapper" >
-  <resultMap id="BaseResultMap" type="com.wenlincheng.ssm.pojo.TResource" >
-    <id column="resource_id" property="resourceId" jdbcType="INTEGER" />
-    <result column="resource_name" property="resourceName" jdbcType="VARCHAR" />
-    <result column="resource_permission" property="resourcePermission" jdbcType="VARCHAR" />
-    <result column="resource_url" property="resourceUrl" jdbcType="VARCHAR" />
+<mapper namespace="com.wenlincheng.ssm.mapper.TPermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.wenlincheng.ssm.pojo.TPermission" >
+    <id column="permission_id" property="permissionId" jdbcType="INTEGER" />
+    <result column="permission_name" property="permissionName" jdbcType="VARCHAR" />
+    <result column="permission_str" property="permissionStr" jdbcType="VARCHAR" />
+    <result column="permission_url" property="permissionUrl" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,19 +67,19 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      resource_id, resource_name, resource_permission, resource_url
+      permission_id, permission_name, permission_str, permission_url
     </if>
     <if test="fields != null" >
       ${fields}
     </if>
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wenlincheng.ssm.pojo.TResourceExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wenlincheng.ssm.pojo.TPermissionExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_resource
+    from t_permission
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -92,77 +92,77 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    resource_id,resource_name,resource_permission,resource_url
-    from t_resource
-    where resource_id = #{resourceId,jdbcType=INTEGER}
+    permission_id,permission_name,permission_str,permission_url
+    from t_permission
+    where permission_id = #{permissionId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_resource
-    where resource_id = #{resourceId,jdbcType=INTEGER}
+    delete from t_permission
+    where permission_id = #{permissionId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.wenlincheng.ssm.pojo.TResourceExample" >
-    delete from t_resource
+  <delete id="deleteByExample" parameterType="com.wenlincheng.ssm.pojo.TPermissionExample" >
+    delete from t_permission
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.wenlincheng.ssm.pojo.TResource" >
-    insert into t_resource (resource_id, resource_name, resource_permission, 
-      resource_url)
-    values (#{resourceId,jdbcType=INTEGER}, #{resourceName,jdbcType=VARCHAR}, #{resourcePermission,jdbcType=VARCHAR}, 
-      #{resourceUrl,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.wenlincheng.ssm.pojo.TPermission" >
+    insert into t_permission (permission_id, permission_name, permission_str, 
+      permission_url)
+    values (#{permissionId,jdbcType=INTEGER}, #{permissionName,jdbcType=VARCHAR}, #{permissionStr,jdbcType=VARCHAR}, 
+      #{permissionUrl,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.wenlincheng.ssm.pojo.TResource" >
-    insert into t_resource
+  <insert id="insertSelective" parameterType="com.wenlincheng.ssm.pojo.TPermission" >
+    insert into t_permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="resourceId != null" >
-        resource_id,
+      <if test="permissionId != null" >
+        permission_id,
       </if>
-      <if test="resourceName != null" >
-        resource_name,
+      <if test="permissionName != null" >
+        permission_name,
       </if>
-      <if test="resourcePermission != null" >
-        resource_permission,
+      <if test="permissionStr != null" >
+        permission_str,
       </if>
-      <if test="resourceUrl != null" >
-        resource_url,
+      <if test="permissionUrl != null" >
+        permission_url,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="resourceId != null" >
-        #{resourceId,jdbcType=INTEGER},
+      <if test="permissionId != null" >
+        #{permissionId,jdbcType=INTEGER},
       </if>
-      <if test="resourceName != null" >
-        #{resourceName,jdbcType=VARCHAR},
+      <if test="permissionName != null" >
+        #{permissionName,jdbcType=VARCHAR},
       </if>
-      <if test="resourcePermission != null" >
-        #{resourcePermission,jdbcType=VARCHAR},
+      <if test="permissionStr != null" >
+        #{permissionStr,jdbcType=VARCHAR},
       </if>
-      <if test="resourceUrl != null" >
-        #{resourceUrl,jdbcType=VARCHAR},
+      <if test="permissionUrl != null" >
+        #{permissionUrl,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.wenlincheng.ssm.pojo.TResourceExample" resultType="java.lang.Integer" >
-    select count(*) from t_resource
+  <select id="countByExample" parameterType="com.wenlincheng.ssm.pojo.TPermissionExample" resultType="java.lang.Integer" >
+    select count(*) from t_permission
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update t_resource
+    update t_permission
     <set >
-      <if test="record.resourceId != null" >
-        resource_id = #{record.resourceId,jdbcType=INTEGER},
+      <if test="record.permissionId != null" >
+        permission_id = #{record.permissionId,jdbcType=INTEGER},
       </if>
-      <if test="record.resourceName != null" >
-        resource_name = #{record.resourceName,jdbcType=VARCHAR},
+      <if test="record.permissionName != null" >
+        permission_name = #{record.permissionName,jdbcType=VARCHAR},
       </if>
-      <if test="record.resourcePermission != null" >
-        resource_permission = #{record.resourcePermission,jdbcType=VARCHAR},
+      <if test="record.permissionStr != null" >
+        permission_str = #{record.permissionStr,jdbcType=VARCHAR},
       </if>
-      <if test="record.resourceUrl != null" >
-        resource_url = #{record.resourceUrl,jdbcType=VARCHAR},
+      <if test="record.permissionUrl != null" >
+        permission_url = #{record.permissionUrl,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -170,35 +170,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update t_resource
-    set resource_id = #{record.resourceId,jdbcType=INTEGER},
-      resource_name = #{record.resourceName,jdbcType=VARCHAR},
-      resource_permission = #{record.resourcePermission,jdbcType=VARCHAR},
-      resource_url = #{record.resourceUrl,jdbcType=VARCHAR}
+    update t_permission
+    set permission_id = #{record.permissionId,jdbcType=INTEGER},
+      permission_name = #{record.permissionName,jdbcType=VARCHAR},
+      permission_str = #{record.permissionStr,jdbcType=VARCHAR},
+      permission_url = #{record.permissionUrl,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wenlincheng.ssm.pojo.TResource" >
-    update t_resource
+  <update id="updateByPrimaryKeySelective" parameterType="com.wenlincheng.ssm.pojo.TPermission" >
+    update t_permission
     <set >
-      <if test="resourceName != null" >
-        resource_name = #{resourceName,jdbcType=VARCHAR},
+      <if test="permissionName != null" >
+        permission_name = #{permissionName,jdbcType=VARCHAR},
       </if>
-      <if test="resourcePermission != null" >
-        resource_permission = #{resourcePermission,jdbcType=VARCHAR},
+      <if test="permissionStr != null" >
+        permission_str = #{permissionStr,jdbcType=VARCHAR},
       </if>
-      <if test="resourceUrl != null" >
-        resource_url = #{resourceUrl,jdbcType=VARCHAR},
+      <if test="permissionUrl != null" >
+        permission_url = #{permissionUrl,jdbcType=VARCHAR},
       </if>
     </set>
-    where resource_id = #{resourceId,jdbcType=INTEGER}
+    where permission_id = #{permissionId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wenlincheng.ssm.pojo.TResource" >
-    update t_resource
-    set resource_name = #{resourceName,jdbcType=VARCHAR},
-      resource_permission = #{resourcePermission,jdbcType=VARCHAR},
-      resource_url = #{resourceUrl,jdbcType=VARCHAR}
-    where resource_id = #{resourceId,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.wenlincheng.ssm.pojo.TPermission" >
+    update t_permission
+    set permission_name = #{permissionName,jdbcType=VARCHAR},
+      permission_str = #{permissionStr,jdbcType=VARCHAR},
+      permission_url = #{permissionUrl,jdbcType=VARCHAR}
+    where permission_id = #{permissionId,jdbcType=INTEGER}
   </update>
 </mapper>
